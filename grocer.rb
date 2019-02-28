@@ -1,15 +1,26 @@
 def consolidate_cart(cart)
-  # code here
+  cart.each_with_object({}) do |element, new_ele|
+    element.each do |item, parameters|
+      if new_ele[item]
+        parameters[:count] += 1
+      else
+        parameters[:count] = 1
+        new_ele[item] = parameters
+      end
+    end
+  end
 end
 
 def apply_coupons(cart, coupons)
-  # code here
+  coupons.each do |ele|
+    name = ele[:item]
+    
 end
 
 def apply_clearance(cart)
-  # code here
+  
 end
 
 def checkout(cart, coupons)
-  # code here
+  
 end
